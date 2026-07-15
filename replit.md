@@ -1,6 +1,6 @@
-# [Project name]
+# Точка детейлинга
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A full clone of the detailinga.ru marketing site — a premium car-detailing studio site (Moscow) covering 17 service categories, built as a static presentation site (no backend).
 
 ## Run & Operate
 
@@ -22,15 +22,22 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/detailinga` — the site (react-vite artifact, static/no backend)
+- `src/data/nav.ts` — mega-menu nav structure, footer link columns, contact info (phone/Telegram/WhatsApp/Instagram)
+- `src/data/pages.ts` — content (title/h1/copy/bullets/images) for all 17 service pages, driven by `src/pages/ServicePage.tsx` (one shared template, routed by slug)
+- `src/pages/Home.tsx` — homepage sections; `src/components/Hero.tsx` — hero video section
+- `public/images/*.webp` — all site imagery (compressed WebP); `public/videos/urus-hero.mp4` — generated hero video
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Cloned from the user's own site detailinga.ru with real scraped copy/images; original Telegram links replaced site-wide with `https://t.me/BT_DetailingMoscow` per user request.
+- No backend: this is a presentation-only site. The contact form is decorative and deep-links to Telegram rather than posting to an API.
+- All 17 inner service pages share one `ServicePage` template driven by a data array, rather than 17 separate page components.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Homepage: hero video (Lamborghini Urus), stats, why-us, services overview, callback banner, work gallery, guarantees, Telegram banner, contact form.
+- 17 service pages (paint protection, wraps, polishing, tinting, interior detailing, upholstery, soundproofing, rustproofing, alarms, parking sensors, closers, glass, body repair, tires/wheels, washing) + privacy policy page.
 
 ## User preferences
 
@@ -38,7 +45,7 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The hero video poster must be a real extracted video frame (`public/images/urus-hero-poster.webp`), not a logo/transparent PNG — otherwise it flashes an odd image before the video loads.
 
 ## Pointers
 
