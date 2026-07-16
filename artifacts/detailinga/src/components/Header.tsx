@@ -72,21 +72,39 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 flex-col items-end gap-0.5 lg:flex">
           <a
             href={CONTACT.phoneHref}
-            className="text-sm font-medium tracking-wide text-foreground/90 transition hover:text-primary"
+            className="text-base font-semibold tracking-wide text-foreground/90 transition hover:text-primary"
           >
             {CONTACT.phone}
           </a>
           <a
-            href={CONTACT.telegram}
+            href={CONTACT.whatsapp}
             target="_blank"
             rel="noreferrer"
-            className="rounded-sm bg-primary px-4 py-2 text-[13px] font-semibold uppercase tracking-wide text-primary-foreground transition hover:opacity-90"
+            className="text-[12px] text-foreground/50 transition hover:text-primary"
           >
-            Связаться с нами
+            Или напишите нам в What's App
           </a>
+          <div className="flex items-center gap-3 mt-0.5">
+            <a
+              href={CONTACT.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[12px] text-foreground/60 transition hover:text-primary"
+            >
+              Instagram
+            </a>
+            <a
+              href={CONTACT.telegram}
+              target="_blank"
+              rel="noreferrer"
+              className="text-[12px] text-foreground/60 transition hover:text-primary"
+            >
+              Telegram
+            </a>
+          </div>
         </div>
 
         <button
