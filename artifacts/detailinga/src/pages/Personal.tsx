@@ -1,6 +1,6 @@
 export function Personal() {
   return (
-    <section className="section-pad bg-[#030b18]">
+    <section className="section-pad bg-[#030b18] pt-40">
       <div className="mx-auto max-w-[820px] px-4 lg:px-8">
         <h1 className="mb-8 text-2xl font-medium md:text-3xl">
           Политика конфиденциальности и обработки персональных данных

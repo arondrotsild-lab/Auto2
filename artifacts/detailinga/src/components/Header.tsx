@@ -22,7 +22,7 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full transition-all duration-500"
+      className="fixed top-0 z-50 w-full transition-all duration-500"
       style={{
         background: scrolled
           ? 'linear-gradient(135deg, rgba(10,28,70,0.55) 0%, rgba(5,14,40,0.65) 100%)'

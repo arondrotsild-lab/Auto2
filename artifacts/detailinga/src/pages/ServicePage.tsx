@@ -22,7 +22,7 @@ export function ServicePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-border bg-[#030b18]">
+      <section className="relative overflow-hidden border-b border-border bg-[#030b18] pt-32 lg:pt-36">
         <div className="mx-auto max-w-[1320px] px-4 py-20 lg:px-8 lg:py-28">
           <h1 className="max-w-3xl whitespace-pre-line text-3xl font-medium leading-tight md:text-5xl">
             {data.h1}
