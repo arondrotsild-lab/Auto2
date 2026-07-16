@@ -52,7 +52,7 @@ export function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-4 py-2 backdrop-blur-sm">
                 <Star className="h-4 w-4 fill-primary text-primary" />
-                <span className="text-sm font-medium text-white">Более 9 600 довольных клиентов</span>
+                <span className="text-sm font-medium text-white">Более 600 довольных клиентов</span>
               </div>
             </div>
 
