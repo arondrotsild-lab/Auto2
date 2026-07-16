@@ -8,6 +8,7 @@ import { Footer } from '@/components/Footer';
 import { Home } from '@/pages/Home';
 import { ServicePage } from '@/pages/ServicePage';
 import { Personal } from '@/pages/Personal';
+import { Reviews } from '@/pages/Reviews';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/personal" component={Personal} />
+          <Route path="/reviews" component={Reviews} />
           <Route path="/:slug" component={ServicePage} />
           <Route component={NotFound} />
         </Switch>

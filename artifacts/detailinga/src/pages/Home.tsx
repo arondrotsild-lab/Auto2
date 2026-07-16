@@ -98,26 +98,34 @@ export function Home() {
                 title: 'Только оригинальные материалы',
                 text: 'Работаем исключительно с сертифицированными составами и плёнками: 3M, Llumar, Meguiar\'s, Chemical Guys',
               },
-              {
-                icon: Users,
-                title: 'Клиенты возвращаются снова',
-                text: 'Более 600 довольных клиентов — большинство приезжают повторно и рекомендуют нас друзьям',
-                link: { href: '#reviews', label: 'Смотреть отзывы →' },
-              },
-            ].map(({ icon: Icon, title, text, link }) => (
+            ].map(({ icon: Icon, title, text }) => (
               <div key={title} className="flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition hover:border-primary/30">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <p className="font-semibold text-foreground">{title}</p>
                 <p className="text-sm leading-relaxed text-foreground/60">{text}</p>
-                {link && (
-                  <a href={link.href} className="mt-auto text-xs font-semibold uppercase tracking-wide text-primary hover:underline">
-                    {link.label}
-                  </a>
-                )}
               </div>
             ))}
+
+            {/* Highlighted reviews card */}
+            <Link href="/reviews" className="group flex flex-col gap-3 rounded-xl border-2 border-primary/60 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-5 shadow-lg shadow-primary/10 transition hover:border-primary hover:shadow-primary/20">
+              <div className="flex items-center justify-between">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
+                  <Users className="h-5 w-5 text-primary" />
+                </div>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
+              <p className="font-semibold text-foreground">Клиенты возвращаются снова</p>
+              <p className="text-sm leading-relaxed text-foreground/60">Более 1 400 довольных клиентов — большинство приезжают повторно и рекомендуют нас друзьям</p>
+              <span className="mt-auto inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-primary transition group-hover:gap-2">
+                Смотреть отзывы →
+              </span>
+            </Link>
           </div>
 
         </div>
