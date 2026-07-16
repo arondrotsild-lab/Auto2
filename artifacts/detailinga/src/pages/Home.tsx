@@ -36,7 +36,7 @@ export function Home() {
     <div>
       <Hero />
 
-      <section className="section-pad bg-[#030b18]">
+      <section className="section-pad bg-[#0a0a0a]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
 
           {/* Top: image + text side by side */}
@@ -123,7 +123,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-[#050e1f]">
+      <section className="section-pad bg-[#111111]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги нашего центра</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,7 +145,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad border-y border-border bg-[#030b18]">
+      <section className="section-pad border-y border-border bg-[#0a0a0a]">
         <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-4 px-4 text-center lg:px-8">
           <h2 className="text-2xl font-medium md:text-3xl">Остались вопросы? Закажите звонок</h2>
           <p className="text-sm text-muted-foreground">и наш менеджер проконсультирует Вас</p>
@@ -160,7 +160,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="reviews" className="section-pad bg-[#030b18]">
+      <section id="reviews" className="section-pad bg-[#0a0a0a]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-2xl font-medium md:text-3xl">Выполненные работы</h2>
@@ -185,7 +185,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="about" className="section-pad bg-[#050e1f]">
+      <section id="about" className="section-pad bg-[#111111]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <h2 className="mb-10 text-center text-2xl font-medium md:text-3xl">Гарантируем надежность и качество</h2>
           <div className="grid gap-6 md:grid-cols-3">

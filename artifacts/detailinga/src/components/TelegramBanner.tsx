@@ -3,10 +3,10 @@ import { Send } from 'lucide-react';
 
 export function TelegramBanner() {
   return (
-    <section className="section-pad border-y border-border bg-gradient-to-r from-[#030b18] via-[#061528] to-[#030b18]">
+    <section className="section-pad border-y border-border bg-gradient-to-r from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]">
       <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-6 px-4 text-center lg:flex-row lg:text-left lg:px-8">
         <div className="flex items-center gap-4">
-          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border gold-border bg-[#030b18]">
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border gold-border bg-[#0a0a0a]">
             <Send className="h-6 w-6 gold-text" />
           </span>
           <h3 className="text-xl font-medium md:text-2xl">

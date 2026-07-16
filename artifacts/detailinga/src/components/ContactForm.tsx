@@ -12,7 +12,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="order" className="section-pad bg-[#030b18]">
+    <section id="order" className="section-pad bg-[#0a0a0a]">
       <div className="mx-auto max-w-[720px] px-4 text-center lg:px-8">
         <h2 className="text-2xl font-medium md:text-3xl">
           Получите персональное предложение <span className="gold-gradient-text">под ваш автомобиль</span>

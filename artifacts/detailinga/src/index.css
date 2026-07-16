@@ -73,77 +73,77 @@
 
 /* LIGHT MODE (site is dark-only, but tokens are still defined) */
 :root {
-  --button-outline: rgba(255, 255, 255, 0.12);
-  --badge-outline: rgba(255, 255, 255, 0.06);
+  --button-outline: rgba(255, 255, 255, 0.18);
+  --badge-outline: rgba(255, 255, 255, 0.08);
 
   /* Automatic computation of border around primary / danger buttons */
   --opaque-button-border-intensity: -8; /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255, 255, 255, 0.04);
-  --elevate-2: rgba(255, 255, 255, 0.09);
+  --elevate-1: rgba(255, 255, 255, 0.05);
+  --elevate-2: rgba(255, 255, 255, 0.10);
 
-  --background: 218 55% 7%;
+  --background: 0 0% 4%;
 
-  --foreground: 216 35% 93%;
+  --foreground: 0 0% 93%;
 
-  --border: 218 40% 20%;
+  --border: 0 0% 16%;
 
-  --card: 218 52% 10%;
+  --card: 0 0% 7%;
 
-  --card-foreground: 216 35% 93%;
+  --card-foreground: 0 0% 93%;
 
-  --card-border: 218 40% 20%;
+  --card-border: 0 0% 16%;
 
-  --sidebar: 218 52% 10%;
+  --sidebar: 0 0% 7%;
 
-  --sidebar-foreground: 216 35% 93%;
+  --sidebar-foreground: 0 0% 93%;
 
-  --sidebar-border: 218 40% 20%;
+  --sidebar-border: 0 0% 16%;
 
-  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary: 0 0% 92%;
 
-  --sidebar-primary-foreground: 220 100% 97%;
+  --sidebar-primary-foreground: 0 0% 5%;
 
-  --sidebar-accent: 218 42% 16%;
+  --sidebar-accent: 0 0% 13%;
 
-  --sidebar-accent-foreground: 216 35% 93%;
+  --sidebar-accent-foreground: 0 0% 93%;
 
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-ring: 0 0% 80%;
 
-  --popover: 218 52% 10%;
+  --popover: 0 0% 7%;
 
-  --popover-foreground: 216 35% 93%;
+  --popover-foreground: 0 0% 93%;
 
-  --popover-border: 218 40% 20%;
+  --popover-border: 0 0% 16%;
 
-  --primary: 217 91% 60%;
+  --primary: 0 0% 92%;
 
-  --primary-foreground: 220 100% 97%;
+  --primary-foreground: 0 0% 5%;
 
-  --secondary: 218 42% 16%;
+  --secondary: 0 0% 13%;
 
-  --secondary-foreground: 216 35% 93%;
+  --secondary-foreground: 0 0% 93%;
 
-  --muted: 218 40% 15%;
+  --muted: 0 0% 11%;
 
-  --muted-foreground: 215 22% 60%;
+  --muted-foreground: 0 0% 56%;
 
-  --accent: 217 91% 60%;
+  --accent: 0 0% 92%;
 
-  --accent-foreground: 220 100% 97%;
+  --accent-foreground: 0 0% 5%;
 
   --destructive: 4 70% 55%;
 
   --destructive-foreground: 0 0% 98%;
 
-  --input: 218 38% 19%;
-  --ring: 217 91% 60%;
-  --chart-1: 217 91% 60%;
-  --chart-2: 210 55% 60%;
-  --chart-3: 217 55% 40%;
-  --chart-4: 217 35% 30%;
-  --chart-5: 217 35% 22%;
+  --input: 0 0% 15%;
+  --ring: 0 0% 80%;
+  --chart-1: 0 0% 90%;
+  --chart-2: 0 0% 70%;
+  --chart-3: 0 0% 50%;
+  --chart-4: 0 0% 35%;
+  --chart-5: 0 0% 22%;
 
   --app-font-sans: 'Montserrat', Arial, sans-serif;
   --app-font-serif: Georgia, serif;
@@ -223,77 +223,76 @@
 }
 
 .dark {
-  --button-outline: rgba(255, 255, 255, 0.1);
-  --badge-outline: rgba(255, 255, 255, 0.05);
+  --button-outline: rgba(255, 255, 255, 0.15);
+  --badge-outline: rgba(255, 255, 255, 0.06);
 
   --opaque-button-border-intensity: 9; /* In terms of percentages */
 
   /* Backgrounds applied on top of other backgrounds when hovered/active */
-  --elevate-1: rgba(255, 255, 255, 0.04);
-  --elevate-2: rgba(255, 255, 255, 0.09);
+  --elevate-1: rgba(255, 255, 255, 0.05);
+  --elevate-2: rgba(255, 255, 255, 0.10);
 
-  --background: 218 55% 7%;
+  --background: 0 0% 4%;
 
-  --foreground: 216 35% 93%;
+  --foreground: 0 0% 93%;
 
-  --border: 218 40% 20%;
+  --border: 0 0% 16%;
 
-  --card: 218 52% 10%;
+  --card: 0 0% 7%;
 
-  --card-foreground: 216 35% 93%;
+  --card-foreground: 0 0% 93%;
 
-  --card-border: 218 40% 20%;
+  --card-border: 0 0% 16%;
 
-  --sidebar: 218 52% 10%;
+  --sidebar: 0 0% 7%;
 
-  --sidebar-foreground: 216 35% 93%;
+  --sidebar-foreground: 0 0% 93%;
 
-  --sidebar-border: 218 40% 20%;
+  --sidebar-border: 0 0% 16%;
 
-  --sidebar-primary: 217 91% 60%;
+  --sidebar-primary: 0 0% 92%;
 
-  --sidebar-primary-foreground: 220 100% 97%;
+  --sidebar-primary-foreground: 0 0% 5%;
 
-  --sidebar-accent: 218 42% 16%;
+  --sidebar-accent: 0 0% 13%;
 
-  --sidebar-accent-foreground: 216 35% 93%;
+  --sidebar-accent-foreground: 0 0% 93%;
 
-  --sidebar-ring: 217 91% 60%;
+  --sidebar-ring: 0 0% 80%;
 
-  --popover: 218 52% 10%;
+  --popover: 0 0% 7%;
 
-  --popover-foreground: 216 35% 93%;
+  --popover-foreground: 0 0% 93%;
 
-  --popover-border: 218 40% 20%;
+  --popover-border: 0 0% 16%;
 
-  --primary: 217 91% 60%;
+  --primary: 0 0% 92%;
 
-  --primary-foreground: 220 100% 97%;
+  --primary-foreground: 0 0% 5%;
 
-  --secondary: 218 42% 16%;
+  --secondary: 0 0% 13%;
 
-  --secondary-foreground: 216 35% 93%;
+  --secondary-foreground: 0 0% 93%;
 
-  --muted: 218 40% 15%;
+  --muted: 0 0% 11%;
 
-  --muted-foreground: 215 22% 60%;
+  --muted-foreground: 0 0% 56%;
 
-  --accent: 217 91% 60%;
+  --accent: 0 0% 92%;
 
-  --accent-foreground: 220 100% 97%;
+  --accent-foreground: 0 0% 5%;
 
   --destructive: 4 70% 55%;
 
   --destructive-foreground: 0 0% 98%;
 
-  /* Used as the border around inputs. Dark mode: Should be a border that is light enough to have high contrast when rendered on a --card background. More contrast than standard --border */
-  --input: 218 38% 19%;
-  --ring: 217 91% 60%;
-  --chart-1: 217 91% 60%;
-  --chart-2: 210 55% 60%;
-  --chart-3: 217 55% 40%;
-  --chart-4: 217 35% 30%;
-  --chart-5: 217 35% 22%;
+  --input: 0 0% 15%;
+  --ring: 0 0% 80%;
+  --chart-1: 0 0% 90%;
+  --chart-2: 0 0% 70%;
+  --chart-3: 0 0% 50%;
+  --chart-4: 0 0% 35%;
+  --chart-5: 0 0% 22%;
 
   --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
   --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
@@ -331,18 +330,18 @@
 
 @layer utilities {
   .gold-text {
-    color: hsl(217 91% 65%);
+    color: hsl(0 0% 82%);
   }
 
   .gold-gradient-text {
-    background: linear-gradient(120deg, #bfdbfe 0%, #60a5fa 45%, #2563eb 100%);
+    background: linear-gradient(120deg, #ffffff 0%, #d4d4d4 40%, #a3a3a3 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .gold-border {
-    border-color: hsl(217 91% 60% / 0.4);
+    border-color: rgba(255, 255, 255, 0.22);
   }
 
   .section-pad {

@@ -25,15 +25,15 @@ export function Header() {
       className="fixed top-0 z-50 w-full transition-all duration-500"
       style={{
         background: scrolled
-          ? 'linear-gradient(135deg, rgba(10,28,70,0.55) 0%, rgba(5,14,40,0.65) 100%)'
+          ? 'linear-gradient(135deg, rgba(10,10,10,0.75) 0%, rgba(18,18,18,0.85) 100%)'
           : 'transparent',
-        backdropFilter: scrolled ? 'blur(28px) saturate(180%)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(28px) saturate(180%)' : 'none',
+        backdropFilter: scrolled ? 'blur(28px) saturate(120%)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(28px) saturate(120%)' : 'none',
         borderBottom: scrolled
-          ? '1px solid rgba(96,165,250,0.18)'
+          ? '1px solid rgba(255,255,255,0.10)'
           : '1px solid transparent',
         boxShadow: scrolled
-          ? '0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)'
+          ? '0 8px 32px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.06)'
           : 'none',
       }}
     >

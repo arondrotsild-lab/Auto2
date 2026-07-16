@@ -3,7 +3,7 @@ import { relatedServices } from '@/data/pages';
 
 export function RelatedServices() {
   return (
-    <section className="section-pad bg-[#050e1f]">
+    <section className="section-pad bg-[#111111]">
       <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
         <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги</h2>
         <div className="grid gap-5 md:grid-cols-3">
