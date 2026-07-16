@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "2xthd9d7xb9MhBtLQBn6y"
+uri = "file://attached_assets/generated_images/cybertruck-yellow.jpg"
+type = "image"
+title = "Tesla Cybertruck — жёлтый"
