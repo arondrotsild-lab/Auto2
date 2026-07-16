@@ -23,7 +23,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-4 pt-44 pb-24 lg:px-8 lg:pt-52">
-        <h1 className="max-w-2xl text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
+        <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
           Комплексные решения <span className="gold-gradient-text">для вашего автомобиля</span>
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/75">
