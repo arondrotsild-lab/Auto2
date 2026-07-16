@@ -4,7 +4,7 @@ import { footerColumns, CONTACT } from '@/data/nav';
 
 export function Footer() {
   return (
-    <footer id="contacts" className="border-t border-border bg-black">
+    <footer id="contacts" className="border-t border-border bg-[#030b18]">
       <div className="mx-auto max-w-[1320px] px-4 py-14 lg:px-8">
         <div className="mb-10 flex flex-col items-start justify-between gap-6 border-b border-border pb-10 lg:flex-row lg:items-center">
           <div className="flex items-center gap-3">

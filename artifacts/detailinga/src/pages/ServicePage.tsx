@@ -22,7 +22,7 @@ export function ServicePage() {
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-border bg-black">
+      <section className="relative overflow-hidden border-b border-border bg-[#030b18]">
         <div className="mx-auto max-w-[1320px] px-4 py-20 lg:px-8 lg:py-28">
           <h1 className="max-w-3xl whitespace-pre-line text-3xl font-medium leading-tight md:text-5xl">
             {data.h1}
@@ -38,7 +38,7 @@ export function ServicePage() {
         </div>
       </section>
 
-      <section className="section-pad bg-[#0d0d0d]">
+      <section className="section-pad bg-[#050e1f]">
         <div className="mx-auto grid max-w-[1320px] gap-10 px-4 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="text-base leading-relaxed text-foreground/80">{data.intro}</p>
@@ -67,7 +67,7 @@ export function ServicePage() {
       </section>
 
       {data.images.length > 0 && (
-        <section className="section-pad bg-black">
+        <section className="section-pad bg-[#030b18]">
           <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
             <div
               className={

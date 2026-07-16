@@ -8,7 +8,7 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black">
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#030b18]">
       <video
         className="absolute inset-0 h-full w-full object-cover opacity-70"
         autoPlay

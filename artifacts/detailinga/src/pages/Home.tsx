@@ -36,7 +36,7 @@ export function Home() {
     <div>
       <Hero />
 
-      <section className="section-pad bg-black">
+      <section className="section-pad bg-[#030b18]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <h2 className="mb-6 text-2xl font-medium md:text-3xl">Преимущества работы с нами</h2>
           <div className="grid gap-10 lg:grid-cols-2">
@@ -69,7 +69,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-[#0d0d0d]">
+      <section className="section-pad bg-[#050e1f]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги нашего центра</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -91,7 +91,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad border-y border-border bg-black">
+      <section className="section-pad border-y border-border bg-[#030b18]">
         <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-4 px-4 text-center lg:px-8">
           <h2 className="text-2xl font-medium md:text-3xl">Остались вопросы? Закажите звонок</h2>
           <p className="text-sm text-muted-foreground">и наш менеджер проконсультирует Вас</p>
@@ -106,7 +106,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="reviews" className="section-pad bg-black">
+      <section id="reviews" className="section-pad bg-[#030b18]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-2xl font-medium md:text-3xl">Выполненные работы</h2>
@@ -131,7 +131,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="about" className="section-pad bg-[#0d0d0d]">
+      <section id="about" className="section-pad bg-[#050e1f]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <h2 className="mb-10 text-center text-2xl font-medium md:text-3xl">Гарантируем надежность и качество</h2>
           <div className="grid gap-6 md:grid-cols-3">
