@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { TelegramBanner } from '@/components/TelegramBanner';
 import { ContactForm } from '@/components/ContactForm';
 import { CONTACT, navGroups } from '@/data/nav';
-import { ShieldCheck, Sparkles, MessageCircleHeart } from 'lucide-react';
+import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Clock, Star, Users } from 'lucide-react';
 
 const galleryImages = [
   { src: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp', label: 'Защита кузова' },
@@ -38,34 +38,88 @@ export function Home() {
 
       <section className="section-pad bg-[#030b18]">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
-          <h2 className="mb-6 text-2xl font-medium md:text-3xl">Преимущества работы с нами</h2>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <p className="text-sm leading-relaxed text-foreground/75 md:text-base">
-              Приносить пользу людям, быть профессионалами своего дела, получать удовольствие от работы — для нас это
-              более ценно, чем просто зарабатывать деньги. Поэтому мы в постоянном движении. Перенимаем опыт у
-              профессионалов, посещаем главные детейлинг-выставки мира. Разрабатываем собственные составы керамики
-              для защиты кузова и химчистки салона, используем материалы мировых брендов: Meguiar&rsquo;s, Chemical
-              Guys, Lake Country и др. Мы первые запустили полноценную онлайн-школу для профессиональных детейлеров,
-              автовладельцев и владельцев бизнеса, чтобы наш опыт и знания стали доступны большему количеству людей.
-            </p>
-            <div className="flex flex-col gap-6">
-              <div className="rounded-md border border-border bg-card p-6">
-                <p className="mb-1 text-sm uppercase tracking-wide text-primary">Реальные отзывы</p>
-                <p className="text-sm text-foreground/70">
-                  Положительные отзывы наших клиентов — реальное подтверждение качества нашей работы
-                </p>
-                <a href="#reviews" className="mt-3 inline-block text-xs font-semibold uppercase tracking-wide gold-text">
-                  Смотреть отзывы →
-                </a>
-              </div>
-              <div className="rounded-md border border-border bg-card p-6">
-                <p className="mb-1 text-sm uppercase tracking-wide text-primary">Качественные материалы</p>
-                <p className="text-sm text-foreground/70">
-                  Работаем только с проверенными составами и плёнками мировых брендов
-                </p>
+
+          {/* Top: image + text side by side */}
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+
+            {/* Car image */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <img
+                src="/images/urus-hero-poster.webp"
+                alt="Детейлинг премиум автомобиля"
+                className="h-[340px] w-full object-cover object-center lg:h-[420px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-5 left-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-4 py-2 backdrop-blur-sm">
+                <Star className="h-4 w-4 fill-primary text-primary" />
+                <span className="text-sm font-medium text-white">Более 9 600 довольных клиентов</span>
               </div>
             </div>
+
+            {/* Text */}
+            <div>
+              <p className="mb-2 text-xs uppercase tracking-widest text-primary/80">Почему выбирают нас</p>
+              <h2 className="mb-5 text-2xl font-bold leading-snug md:text-3xl lg:text-4xl">
+                Мы берём за ваш<br />автомобиль полную<br className="hidden lg:block" /> ответственность
+              </h2>
+              <p className="mb-6 text-sm leading-relaxed text-foreground/70 md:text-base">
+                За 20 лет мы выработали стандарты, которым не изменяем: только оригинальные материалы
+                ведущих мировых брендов, только сертифицированные мастера, только честные сроки.
+                Каждый автомобиль обрабатываем так, как будто это наш собственный — с вниманием к
+                каждой детали и полной ответственностью за результат. Мы не сдаём работу, пока вы
+                сами не скажете «отлично».
+              </p>
+              <a
+                href={CONTACT.telegram}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block rounded-sm bg-primary px-7 py-3 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition hover:opacity-90"
+              >
+                Получить консультацию
+              </a>
+            </div>
           </div>
+
+          {/* Bottom: 4 trust cards */}
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                icon: Award,
+                title: '20 лет на рынке',
+                text: 'Репутация, заработанная реальными результатами — не рекламными обещаниями',
+              },
+              {
+                icon: ShieldCheck,
+                title: 'Гарантия на все работы',
+                text: 'Письменная гарантия без оговорок. Если что-то пойдёт не так — исправляем бесплатно',
+              },
+              {
+                icon: Sparkles,
+                title: 'Оригинальные материалы',
+                text: 'Только сертифицированные составы и плёнки: 3M, Llumar, Meguiar\'s, Chemical Guys',
+              },
+              {
+                icon: Users,
+                title: 'Реальные отзывы',
+                text: 'Сотни живых отзывов от клиентов — проверьте сами перед тем, как обратиться',
+                link: { href: '#reviews', label: 'Смотреть отзывы →' },
+              },
+            ].map(({ icon: Icon, title, text, link }) => (
+              <div key={title} className="flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition hover:border-primary/30">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <p className="font-semibold text-foreground">{title}</p>
+                <p className="text-sm leading-relaxed text-foreground/60">{text}</p>
+                {link && (
+                  <a href={link.href} className="mt-auto text-xs font-semibold uppercase tracking-wide text-primary hover:underline">
+                    {link.label}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
