@@ -26,15 +26,15 @@ export function Header() {
       style={{
         background: scrolled
           ? 'linear-gradient(135deg, rgba(10,28,70,0.55) 0%, rgba(5,14,40,0.65) 100%)'
-          : 'linear-gradient(135deg, rgba(10,28,70,0.25) 0%, rgba(5,14,40,0.35) 100%)',
-        backdropFilter: 'blur(28px) saturate(180%)',
-        WebkitBackdropFilter: 'blur(28px) saturate(180%)',
+          : 'transparent',
+        backdropFilter: scrolled ? 'blur(28px) saturate(180%)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(28px) saturate(180%)' : 'none',
         borderBottom: scrolled
           ? '1px solid rgba(96,165,250,0.18)'
-          : '1px solid rgba(255,255,255,0.06)',
+          : '1px solid transparent',
         boxShadow: scrolled
           ? '0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)'
-          : 'inset 0 1px 0 rgba(255,255,255,0.04)',
+          : 'none',
       }}
     >
       <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-4 py-2 lg:px-8">
