@@ -1,3 +1,10 @@
+import {
+  SiToyota, SiBmw, SiAudi, SiVolkswagen, SiHonda,
+  SiHyundai, SiKia, SiNissan, SiPorsche, SiVolvo,
+  SiMazda, SiFerrari, SiLamborghini, SiSkoda, SiRenault,
+  SiPeugeot, SiFord, SiJeep, SiMitsubishi, SiSubaru,
+  SiSuzuki, SiBentley, SiOpel,
+} from 'react-icons/si';
 import { CONTACT } from '@/data/nav';
 
 const stats = [
@@ -48,12 +55,40 @@ export function Hero() {
           Связаться с нами
         </a>
 
-        <div className="mt-14 flex flex-wrap items-center gap-x-10 gap-y-4 opacity-70">
-          {['Lamborghini', 'Audi', 'Porsche', 'Ferrari'].map((b) => (
-            <span key={b} className="text-lg font-semibold tracking-widest text-foreground/60">
-              {b}
-            </span>
-          ))}
+        <div className="mt-14">
+          <p className="mb-4 text-xs uppercase tracking-widest text-foreground/40">Работаем со всеми марками</p>
+          <div className="flex flex-wrap items-center gap-x-7 gap-y-5">
+            {[
+              { Icon: SiToyota,     name: 'Toyota' },
+              { Icon: SiBmw,        name: 'BMW' },
+              { Icon: SiAudi,       name: 'Audi' },
+              { Icon: SiVolkswagen, name: 'VW' },
+              { Icon: SiOpel,       name: 'Opel' },
+              { Icon: SiHonda,      name: 'Honda' },
+              { Icon: SiHyundai,    name: 'Hyundai' },
+              { Icon: SiKia,        name: 'Kia' },
+              { Icon: SiNissan,     name: 'Nissan' },
+              { Icon: SiMazda,      name: 'Mazda' },
+              { Icon: SiPorsche,    name: 'Porsche' },
+              { Icon: SiVolvo,      name: 'Volvo' },
+              { Icon: SiFerrari,    name: 'Ferrari' },
+              { Icon: SiLamborghini,name: 'Lamborghini' },
+              { Icon: SiBentley,    name: 'Bentley' },
+              { Icon: SiFord,       name: 'Ford' },
+              { Icon: SiRenault,    name: 'Renault' },
+              { Icon: SiPeugeot,    name: 'Peugeot' },
+              { Icon: SiSkoda,      name: 'Škoda' },
+              { Icon: SiMitsubishi, name: 'Mitsubishi' },
+              { Icon: SiSubaru,     name: 'Subaru' },
+              { Icon: SiJeep,       name: 'Jeep' },
+              { Icon: SiSuzuki,     name: 'Suzuki' },
+            ].map(({ Icon, name }) => (
+              <div key={name} className="flex flex-col items-center gap-1 opacity-50 transition hover:opacity-90">
+                <Icon className="h-7 w-7 text-white" />
+                <span className="text-[10px] tracking-wide text-foreground/60">{name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
