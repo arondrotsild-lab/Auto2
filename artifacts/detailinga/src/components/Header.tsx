@@ -28,7 +28,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-4 py-2 lg:px-8">
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <Logo className="h-12 w-12 md:h-14 md:w-14" />
+          <Logo className="h-14 w-auto md:h-16 w-auto" />
         </Link>
 
         <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
@@ -90,7 +90,7 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-background lg:hidden">
           <div className="flex items-center justify-between border-b border-border px-4 py-3">
-            <Logo className="h-10 w-10" />
+            <Logo className="h-12 w-auto" />
             <button onClick={() => setOpen(false)} aria-label="Закрыть меню" className="p-2">
               <X className="h-6 w-6" />
             </button>

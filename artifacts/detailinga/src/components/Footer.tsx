@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1320px] px-4 py-14 lg:px-8">
         <div className="mb-10 flex flex-col items-start justify-between gap-6 border-b border-border pb-10 lg:flex-row lg:items-center">
           <div className="flex items-center gap-3">
-            <Logo className="h-14 w-14" />
+            <Logo className="h-16 w-auto" />
             <div>
               <p className="text-lg font-semibold tracking-wide">Точка детейлинга</p>
               <p className="text-sm text-muted-foreground">Премиальный детейлинг автомобилей</p>
