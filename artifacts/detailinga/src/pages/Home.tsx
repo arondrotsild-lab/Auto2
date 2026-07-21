@@ -1,108 +1,168 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'wouter';
 import { Hero } from '@/components/Hero';
 import { TelegramBanner } from '@/components/TelegramBanner';
 import { ContactForm } from '@/components/ContactForm';
 import { CONTACT, navGroups } from '@/data/nav';
-import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, Volume2, VolumeX } from 'lucide-react';
+import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, X } from 'lucide-react';
+
+/* ── Fullscreen video modal ───────────────────────────────────────────── */
+function VideoModal({ src, poster, onClose }: { src: string; poster?: string; onClose: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.play().catch(() => {});
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) { if (e.key === 'Escape') onClose(); }
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return createPortal(
+    <div
+      style={{
+        position: 'fixed', inset: 0, zIndex: 9999,
+        background: 'rgba(0,0,0,0.96)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        animation: 'fadeIn 0.18s ease',
+      }}
+      onClick={onClose}
+    >
+      <style>{`@keyframes fadeIn{from{opacity:0}to{opacity:1}}`}</style>
+
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        style={{
+          position: 'absolute', top: 20, right: 20,
+          width: 44, height: 44,
+          background: 'rgba(255,255,255,0.1)',
+          backdropFilter: 'blur(8px)',
+          border: '1px solid rgba(255,255,255,0.15)',
+          borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', zIndex: 10,
+          transition: 'background 0.15s',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.2)')}
+        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.1)')}
+      >
+        <X style={{ width: 20, height: 20, color: '#fff' }} />
+      </button>
+
+      {/* Video — click on video itself should NOT close the modal */}
+      <video
+        ref={videoRef}
+        src={src}
+        poster={poster}
+        controls
+        autoPlay
+        playsInline
+        style={{
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          width: 'auto',
+          height: 'auto',
+          objectFit: 'contain',
+          borderRadius: 8,
+          boxShadow: '0 0 80px rgba(0,0,0,0.8)',
+        }}
+        onClick={e => e.stopPropagation()}
+      />
+    </div>,
+    document.body,
+  );
+}
 
 /* ── iPhone 17 Pro Max mockup ─────────────────────────────────────────── */
 function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [muted, setMuted] = useState(true);
+  const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  function handleClick() {
-    const video = videoRef.current;
-    if (!video) return;
-    const newMuted = !muted;
-    video.muted = newMuted;
-    if (!newMuted) video.play();
-    setMuted(newMuted);
-  }
-
   return (
-    <div className="relative flex-shrink-0 select-none" style={{ width: 178 }}>
+    <>
+      <div
+        className="relative flex-shrink-0 select-none"
+        style={{ width: 178, cursor: 'pointer' }}
+        onClick={() => setOpen(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        {/* Left buttons */}
+        <div style={{ position: 'absolute', left: -4, top: 86, zIndex: 2, display: 'flex', flexDirection: 'column', gap: 0 }}>
+          <div style={{ width: 4, height: 24, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
+          <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
+          <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px' }} />
+        </div>
 
-      {/* Left buttons */}
-      <div style={{ position: 'absolute', left: -4, top: 86, zIndex: 2, display: 'flex', flexDirection: 'column', gap: 0 }}>
-        <div style={{ width: 4, height: 24, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
-        <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
-        <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px' }} />
-      </div>
+        {/* Right button (power) */}
+        <div style={{ position: 'absolute', right: -4, top: 116, zIndex: 2, width: 4, height: 60, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '0 3px 3px 0' }} />
 
-      {/* Right button (power) */}
-      <div style={{ position: 'absolute', right: -4, top: 116, zIndex: 2, width: 4, height: 60, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '0 3px 3px 0' }} />
+        {/* iPhone body */}
+        <div style={{
+          borderRadius: 46,
+          background: 'linear-gradient(145deg, #505050 0%, #1c1c1e 30%, #2e2e30 60%, #1c1c1e 100%)',
+          padding: 3,
+          boxShadow: [
+            'inset 0 0 0 0.5px rgba(255,255,255,0.18)',
+            'inset 0 1px 1px rgba(255,255,255,0.08)',
+            '0 2px 4px rgba(0,0,0,0.6)',
+            '0 20px 60px rgba(0,0,0,0.75)',
+            '0 0 0 0.5px rgba(0,0,0,0.4)',
+          ].join(', '),
+          position: 'relative',
+          transition: 'transform 0.18s ease, box-shadow 0.18s ease',
+          transform: hovered ? 'scale(1.03)' : 'scale(1)',
+        }}>
+          {/* Screen */}
+          <div style={{ borderRadius: 44, overflow: 'hidden', background: '#000', position: 'relative', height: 384 }}>
+            <video
+              src={src}
+              poster={poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
 
-      {/* iPhone body — titanium finish */}
-      <div style={{
-        borderRadius: 46,
-        background: 'linear-gradient(145deg, #505050 0%, #1c1c1e 30%, #2e2e30 60%, #1c1c1e 100%)',
-        padding: 3,
-        boxShadow: [
-          'inset 0 0 0 0.5px rgba(255,255,255,0.18)',
-          'inset 0 1px 1px rgba(255,255,255,0.08)',
-          '0 2px 4px rgba(0,0,0,0.6)',
-          '0 20px 60px rgba(0,0,0,0.75)',
-          '0 0 0 0.5px rgba(0,0,0,0.4)',
-        ].join(', '),
-        position: 'relative',
-      }}>
-
-        {/* Screen bezel */}
-        <div
-          style={{
-            borderRadius: 44,
-            overflow: 'hidden',
-            background: '#000',
-            position: 'relative',
-            height: 384,
-            cursor: 'pointer',
-          }}
-          onClick={handleClick}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-        >
-          {/* Video — full clean screen */}
-          <video
-            ref={videoRef}
-            src={src}
-            poster={poster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
-
-          {/* Sound toggle hint — shows on hover or when unmuted */}
-          <div style={{
-            position: 'absolute',
-            bottom: 14,
-            right: 14,
-            zIndex: 10,
-            opacity: hovered || !muted ? 1 : 0,
-            transition: 'opacity 0.2s ease',
-            background: 'rgba(0,0,0,0.55)',
-            backdropFilter: 'blur(6px)',
-            borderRadius: 20,
-            padding: '5px 10px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 5,
-          }}>
-            {muted
-              ? <VolumeX style={{ width: 13, height: 13, color: 'rgba(255,255,255,0.8)' }} />
-              : <Volume2 style={{ width: 13, height: 13, color: '#b08d57' }} />
-            }
-            <span style={{ fontSize: 10, color: muted ? 'rgba(255,255,255,0.7)' : '#b08d57', fontWeight: 600, letterSpacing: '0.04em' }}>
-              {muted ? 'ТАП' : 'ЗВУК'}
-            </span>
+            {/* Play hint overlay on hover */}
+            <div style={{
+              position: 'absolute', inset: 0, zIndex: 5,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              background: hovered ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0)',
+              transition: 'background 0.18s ease',
+            }}>
+              <div style={{
+                width: 52, height: 52,
+                borderRadius: '50%',
+                background: 'rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(6px)',
+                border: '1.5px solid rgba(255,255,255,0.4)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                opacity: hovered ? 1 : 0,
+                transform: hovered ? 'scale(1)' : 'scale(0.7)',
+                transition: 'opacity 0.18s ease, transform 0.18s ease',
+              }}>
+                {/* Play triangle */}
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M5 3.5L14.5 9L5 14.5V3.5Z" fill="white" />
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-    </div>
+      {open && <VideoModal src={src} poster={poster} onClose={() => setOpen(false)} />}
+    </>
   );
 }
 
