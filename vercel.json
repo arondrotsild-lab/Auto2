@@ -2,7 +2,7 @@
   "version": 2,
   "buildCommand": "pnpm --filter @workspace/detailinga run build",
   "outputDirectory": "artifacts/detailinga/dist/public",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
