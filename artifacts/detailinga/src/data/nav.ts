@@ -170,8 +170,10 @@ export const footerColumns: NavGroup[] = [
 ];
 
 export const CONTACT = {
-  phone: '+7 (958) 295-90-41',
-  phoneHref: 'tel:+79582959041',
+  phone: '+7 (985) 062-58-97',
+  phoneHref: 'tel:+79850625897',
+  phone2: '+7 (991) 986-89-89',
+  phone2Href: 'tel:+79919868989',
   telegram: 'https://t.me/m/RUtTaeFMNGQy',
   whatsapp: 'https://wa.me/message/3R2DQJOJ6BL3O1',
   instagram: 'https://www.instagram.com/tochkadetailinga',

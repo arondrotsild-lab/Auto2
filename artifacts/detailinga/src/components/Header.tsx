@@ -80,6 +80,12 @@ export function Header() {
             {CONTACT.phone}
           </a>
           <a
+            href={CONTACT.phone2Href}
+            className="text-base font-semibold tracking-wide text-foreground/90 transition hover:text-primary"
+          >
+            {CONTACT.phone2}
+          </a>
+          <a
             href={CONTACT.whatsapp}
             target="_blank"
             rel="noreferrer"
@@ -148,9 +154,15 @@ export function Header() {
           <div className="border-t border-border p-4">
             <a
               href={CONTACT.phoneHref}
-              className="mb-3 flex items-center gap-2 text-base font-medium text-foreground"
+              className="mb-1 flex items-center gap-2 text-base font-medium text-foreground"
             >
               <Phone className="h-4 w-4 text-primary" /> {CONTACT.phone}
+            </a>
+            <a
+              href={CONTACT.phone2Href}
+              className="mb-3 flex items-center gap-2 text-base font-medium text-foreground"
+            >
+              <Phone className="h-4 w-4 text-primary" /> {CONTACT.phone2}
             </a>
             <a
               href={CONTACT.telegram}

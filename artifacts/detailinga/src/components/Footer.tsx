@@ -18,6 +18,9 @@ export function Footer() {
             <a href={CONTACT.phoneHref} className="text-base font-medium text-foreground hover:text-primary">
               {CONTACT.phone}
             </a>
+            <a href={CONTACT.phone2Href} className="text-base font-medium text-foreground hover:text-primary">
+              {CONTACT.phone2}
+            </a>
             <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="hover:text-primary">
               Или напишите нам в What&apos;s App
             </a>
