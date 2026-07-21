@@ -144,6 +144,7 @@ const workVideos = [
   { src: '/videos/work-beha.mov' },
   { src: '/videos/work-mers-ml.mov' },
   { src: '/videos/work-civic.mov' },
+  { src: '/videos/work-white-chinese.mov' },
   { src: '/videos/work-1.mp4',  poster: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp',  label: 'Защита кузова' },
   { src: '/videos/work-2.mp4',  poster: '/images/b6db6ea8e808-6809e220-a19e-41cd-a.webp',  label: 'Химчистка' },
   { src: '/videos/work-3.mp4',  poster: '/images/7bbb8dce0e49-b1b91051-11e1-40aa-8.webp',  label: 'Диски литые' },
