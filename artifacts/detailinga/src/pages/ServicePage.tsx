@@ -14,7 +14,7 @@ export function ServicePage() {
 
   useEffect(() => {
     if (data) {
-      document.title = `${data.title} | Точка детейлинга`;
+      document.title = `${data.title} | Brutaliti Detailing`;
     }
   }, [data]);
 
