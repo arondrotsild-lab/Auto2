@@ -341,6 +341,46 @@ export function Home() {
         </div>
       </section>
 
+      {/* ── Уточните стоимость ─────────────────────────────────────────── */}
+      <section className="bg-[#0a0a0a] py-12 px-4">
+        <div className="mx-auto max-w-[1320px] lg:px-8">
+          <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-white/[0.03] px-8 py-10 text-center md:px-16 md:py-12">
+            {/* gold glow */}
+            <div className="pointer-events-none absolute inset-0">
+              <div style={{
+                position: 'absolute', top: '50%', left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '70%', height: 260,
+                background: 'radial-gradient(ellipse, rgba(176,141,87,0.13) 0%, transparent 70%)',
+              }} />
+            </div>
+            <div className="relative">
+              <p className="mb-2 text-xs uppercase tracking-widest text-primary/80">Быстро и без обязательств</p>
+              <h2 className="mb-3 text-2xl font-bold md:text-3xl">Уточните полную стоимость за&nbsp;15&nbsp;мин</h2>
+              <p className="mx-auto mb-8 max-w-xl text-sm text-foreground/60">
+                Напишите нам — опишите задачу или пришлите фото автомобиля, и мы оперативно рассчитаем стоимость работ.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a
+                  href={CONTACT.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href={CONTACT.phoneHref}
+                  className="inline-flex items-center gap-2 rounded-lg border border-primary/40 px-6 py-3 text-sm font-semibold text-primary transition-colors hover:border-primary hover:bg-primary/5"
+                >
+                  {CONTACT.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad bg-[#0d0d0d] relative overflow-hidden">
         {/* Background glow */}
         <div className="pointer-events-none absolute inset-0">
