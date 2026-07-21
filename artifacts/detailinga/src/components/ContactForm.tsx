@@ -65,13 +65,13 @@ export function ContactForm() {
       <div className="mx-auto max-w-[640px] px-4 lg:px-8">
         {/* Header */}
         <div className="mb-10 text-center">
-          <p className="mb-2 text-xs uppercase tracking-widest text-primary/70">Персональная заявка</p>
+          <p className="mb-2 text-xs uppercase tracking-widest text-primary/70">Бесплатный расчёт</p>
           <h2 className="text-2xl font-bold md:text-3xl">
-            Получите предложение{' '}
-            <span className="gold-gradient-text">под ваш автомобиль</span>
+            Узнайте точную стоимость{' '}
+            <span className="gold-gradient-text">за 15 минут</span>
           </h2>
           <p className="mt-3 text-sm text-muted-foreground">
-            Прикрепите фото авто — мы подберём услугу и цену точно под ваш случай
+            Отправьте фото авто и задачу — мастер подберёт услугу и назовёт цену лично для вас
           </p>
         </div>
 

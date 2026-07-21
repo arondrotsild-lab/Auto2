@@ -282,20 +282,7 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad border-y border-border bg-[#0a0a0a]">
-        <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-4 px-4 text-center lg:px-8">
-          <h2 className="text-2xl font-medium md:text-3xl">Остались вопросы? Закажите звонок</h2>
-          <p className="text-sm text-muted-foreground">и наш менеджер проконсультирует Вас</p>
-          <a
-            href={CONTACT.telegram}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-2 rounded-sm bg-primary px-8 py-3 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition hover:opacity-90"
-          >
-            Заказать звонок
-          </a>
-        </div>
-      </section>
+      <ContactForm />
 
       <section id="reviews" className="section-pad bg-[#0a0a0a] overflow-hidden">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
@@ -442,7 +429,6 @@ export function Home() {
       <section id="services" className="sr-only" aria-hidden="true" />
 
       <TelegramBanner />
-      <ContactForm />
     </div>
   );
 }
