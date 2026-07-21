@@ -282,6 +282,8 @@ export function Home() {
         </div>
       </section>
 
+      <ContactForm />
+
       <section id="reviews" className="section-pad bg-[#0a0a0a] overflow-hidden">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
@@ -338,8 +340,6 @@ export function Home() {
           <p className="text-center text-xs text-foreground/40">Прокрутите вправо, чтобы увидеть все работы</p>
         </div>
       </section>
-
-      <ContactForm />
 
       <section className="section-pad bg-[#0d0d0d] relative overflow-hidden">
         {/* Background glow */}
