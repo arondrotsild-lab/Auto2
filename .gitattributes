@@ -1,0 +1,4 @@
+artifacts/detailinga/public/videos/lexus-1.mov filter=lfs diff=lfs merge=lfs -text
+artifacts/detailinga/public/videos/lexus-2.mov filter=lfs diff=lfs merge=lfs -text
+artifacts/detailinga/public/videos/work-beha.mov filter=lfs diff=lfs merge=lfs -text
+artifacts/detailinga/public/videos/work-mers-ml.mov filter=lfs diff=lfs merge=lfs -text
