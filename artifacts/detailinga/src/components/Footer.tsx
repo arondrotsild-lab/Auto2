@@ -32,24 +32,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-7">
-          {footerColumns.map((col) => (
-            <div key={col.label}>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-primary">{col.label}</p>
-              <ul className="space-y-2">
-                {col.links.map((l, i) => (
-                  <li key={i}>
-                    <Link href={l.href} className="text-sm text-foreground/70 hover:text-foreground">
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+        <div className="mt-0 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Точка детейлинга. Все права защищены.</p>
           <Link href="/personal" className="hover:text-foreground">
             Политика конфиденциальности и обработки персональных данных
