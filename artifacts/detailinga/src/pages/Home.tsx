@@ -5,12 +5,124 @@ import { ContactForm } from '@/components/ContactForm';
 import { CONTACT, navGroups } from '@/data/nav';
 import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Clock, Star, Users } from 'lucide-react';
 
-const galleryImages = [
-  { src: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp', label: 'Защита кузова' },
-  { src: '/images/b6db6ea8e808-6809e220-a19e-41cd-a.webp', label: 'Химчистка' },
-  { src: '/images/7bbb8dce0e49-b1b91051-11e1-40aa-8.webp', label: 'Диски литые' },
-  { src: '/images/c7fcf95ff88b-1417f69a-3bd8-41f3-9.webp', label: 'Комплексная мойка' },
-  { src: '/images/c63c21a12d01-cf359342-d008-400c-a.webp', label: 'Защита лобового стекла' },
+/* ── iPhone 17 Pro Max mockup ─────────────────────────────────────────── */
+function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; label: string }) {
+  return (
+    <div className="relative flex-shrink-0 select-none" style={{ width: 178 }}>
+
+      {/* Left buttons */}
+      <div style={{ position: 'absolute', left: -4, top: 86, zIndex: 2, display: 'flex', flexDirection: 'column', gap: 0 }}>
+        {/* Mute toggle */}
+        <div style={{ width: 4, height: 24, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
+        {/* Volume + */}
+        <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
+        {/* Volume − */}
+        <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px' }} />
+      </div>
+
+      {/* Right button (power) */}
+      <div style={{ position: 'absolute', right: -4, top: 116, zIndex: 2, width: 4, height: 60, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '0 3px 3px 0' }} />
+
+      {/* iPhone body — titanium finish */}
+      <div style={{
+        borderRadius: 46,
+        background: 'linear-gradient(145deg, #505050 0%, #1c1c1e 30%, #2e2e30 60%, #1c1c1e 100%)',
+        padding: 3,
+        boxShadow: [
+          'inset 0 0 0 0.5px rgba(255,255,255,0.18)',
+          'inset 0 1px 1px rgba(255,255,255,0.08)',
+          '0 2px 4px rgba(0,0,0,0.6)',
+          '0 20px 60px rgba(0,0,0,0.75)',
+          '0 0 0 0.5px rgba(0,0,0,0.4)',
+        ].join(', '),
+        position: 'relative',
+      }}>
+
+        {/* Screen bezel (inner ring) */}
+        <div style={{
+          borderRadius: 44,
+          overflow: 'hidden',
+          background: '#000',
+          position: 'relative',
+          height: 384,
+        }}>
+
+          {/* Video */}
+          <video
+            src={src}
+            poster={poster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+
+          {/* Dynamic Island */}
+          <div style={{
+            position: 'absolute',
+            top: 13,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 90,
+            height: 32,
+            background: '#000',
+            borderRadius: 20,
+            zIndex: 10,
+            boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)',
+          }} />
+
+          {/* Bottom label gradient */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            padding: '40px 10px 30px',
+            background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
+            zIndex: 5,
+          }}>
+            <p style={{
+              color: '#fff',
+              fontSize: 11,
+              fontWeight: 600,
+              textAlign: 'center',
+              letterSpacing: '0.07em',
+              textTransform: 'uppercase',
+              textShadow: '0 1px 4px rgba(0,0,0,0.8)',
+            }}>{label}</p>
+          </div>
+
+          {/* Home indicator bar */}
+          <div style={{
+            position: 'absolute',
+            bottom: 10,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 96,
+            height: 5,
+            background: 'rgba(255,255,255,0.45)',
+            borderRadius: 3,
+            zIndex: 6,
+          }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Works videos ─────────────────────────────────────────────────────── */
+const workVideos = [
+  { src: '/videos/work-1.mp4',  poster: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp',  label: 'Защита кузова' },
+  { src: '/videos/work-2.mp4',  poster: '/images/b6db6ea8e808-6809e220-a19e-41cd-a.webp',  label: 'Химчистка' },
+  { src: '/videos/work-3.mp4',  poster: '/images/7bbb8dce0e49-b1b91051-11e1-40aa-8.webp',  label: 'Диски литые' },
+  { src: '/videos/work-4.mp4',  poster: '/images/c7fcf95ff88b-1417f69a-3bd8-41f3-9.webp',  label: 'Комплексная мойка' },
+  { src: '/videos/work-5.mp4',  poster: '/images/c63c21a12d01-cf359342-d008-400c-a.webp',  label: 'Защита стекла' },
+  { src: '/videos/work-6.mp4',  poster: '/images/0a3db5fc2f81-to4ka_detailinga-202.webp',  label: 'Керамика' },
+  { src: '/videos/work-7.mp4',  poster: '/images/0a48af105aa9-DSCF9532.webp',              label: 'Полировка' },
+  { src: '/videos/work-8.mp4',  poster: '/images/0a325f1becba-P1100745.webp',              label: 'Детейлинг' },
+  { src: '/videos/work-9.mp4',  poster: '/images/12930cbfddd0-DSCF4668.webp',              label: 'Антигравий' },
+  { src: '/videos/work-10.mp4', poster: '/images/079cc3685ee6-XXXL1.webp',                 label: 'Тонировка' },
 ];
 
 const guarantees = [
@@ -168,28 +280,60 @@ export function Home() {
         </div>
       </section>
 
-      <section id="reviews" className="section-pad bg-[#0a0a0a]">
+      <section id="reviews" className="section-pad bg-[#0a0a0a] overflow-hidden">
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <h2 className="text-2xl font-medium md:text-3xl">Выполненные работы</h2>
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="mb-1 text-xs uppercase tracking-widest text-primary/80">Наши работы</p>
+              <h2 className="text-2xl font-medium md:text-3xl">Выполненные работы</h2>
+            </div>
             <a href={CONTACT.telegram} target="_blank" rel="noreferrer" className="text-sm gold-text hover:underline">
               Смотреть все работы в нашем канале →
             </a>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {galleryImages.map((g) => (
-              <div key={g.label} className="group relative overflow-hidden rounded-md border border-border">
-                <img
-                  src={g.src}
-                  alt={g.label}
-                  className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 via-black/10 to-transparent p-3">
-                  <p className="text-sm font-medium">{g.label}</p>
-                </div>
-              </div>
+        </div>
+
+        {/* Ambient glow */}
+        <div style={{
+          position: 'relative',
+          marginBottom: '0',
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '70%',
+            height: 300,
+            background: 'radial-gradient(ellipse, rgba(176,141,87,0.12) 0%, transparent 70%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }} />
+
+          {/* Scrollable phones row */}
+          <div
+            style={{
+              display: 'flex',
+              gap: 24,
+              overflowX: 'auto',
+              paddingLeft: 'max(16px, calc((100vw - 1320px) / 2 + 32px))',
+              paddingRight: 'max(16px, calc((100vw - 1320px) / 2 + 32px))',
+              paddingTop: 16,
+              paddingBottom: 32,
+              scrollbarWidth: 'none',
+              position: 'relative',
+              zIndex: 1,
+            }}
+            className="[&::-webkit-scrollbar]:hidden"
+          >
+            {workVideos.map((v) => (
+              <IPhoneMockup key={v.label} src={v.src} poster={v.poster} label={v.label} />
             ))}
           </div>
+        </div>
+
+        <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
+          <p className="text-center text-xs text-foreground/40">Прокрутите вправо, чтобы увидеть все работы</p>
         </div>
       </section>
 
