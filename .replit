@@ -24,4 +24,4 @@ channel = "stable-25_05"
 [userenv]
 
 [userenv.shared]
-TELEGRAM_CHAT_ID = "@btdetailing_bot"
+TELEGRAM_CHAT_ID = "302122737"
