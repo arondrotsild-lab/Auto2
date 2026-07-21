@@ -22,9 +22,6 @@ export function Footer() {
               Или напишите нам в What&apos;s App
             </a>
             <div className="flex gap-4 pt-1">
-              <a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="text-primary hover:underline">
-                Instagram
-              </a>
               <a href={CONTACT.telegram} target="_blank" rel="noreferrer" className="text-primary hover:underline">
                 Telegram
               </a>
