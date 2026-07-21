@@ -22,9 +22,8 @@ export function Hero() {
         muted
         loop
         playsInline
-        poster="/images/urus-hero-poster.webp"
       >
-        <source src="/videos/urus-hero.mp4" type="video/mp4" />
+        <source src="/videos/gelik-hero.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
