@@ -1,22 +1,33 @@
+import { useRef, useState } from 'react';
 import { Link } from 'wouter';
 import { Hero } from '@/components/Hero';
 import { TelegramBanner } from '@/components/TelegramBanner';
 import { ContactForm } from '@/components/ContactForm';
 import { CONTACT, navGroups } from '@/data/nav';
-import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Clock, Star, Users } from 'lucide-react';
+import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, Volume2, VolumeX } from 'lucide-react';
 
 /* ── iPhone 17 Pro Max mockup ─────────────────────────────────────────── */
 function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; label: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [hovered, setHovered] = useState(false);
+
+  function handleClick() {
+    const video = videoRef.current;
+    if (!video) return;
+    const newMuted = !muted;
+    video.muted = newMuted;
+    if (!newMuted) video.play();
+    setMuted(newMuted);
+  }
+
   return (
     <div className="relative flex-shrink-0 select-none" style={{ width: 178 }}>
 
       {/* Left buttons */}
       <div style={{ position: 'absolute', left: -4, top: 86, zIndex: 2, display: 'flex', flexDirection: 'column', gap: 0 }}>
-        {/* Mute toggle */}
         <div style={{ width: 4, height: 24, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
-        {/* Volume + */}
         <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px', marginBottom: 8 }} />
-        {/* Volume − */}
         <div style={{ width: 4, height: 36, background: 'linear-gradient(180deg,#444 0%,#222 100%)', borderRadius: '3px 0 0 3px' }} />
       </div>
 
@@ -38,17 +49,23 @@ function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; la
         position: 'relative',
       }}>
 
-        {/* Screen bezel (inner ring) */}
-        <div style={{
-          borderRadius: 44,
-          overflow: 'hidden',
-          background: '#000',
-          position: 'relative',
-          height: 384,
-        }}>
-
-          {/* Video */}
+        {/* Screen bezel */}
+        <div
+          style={{
+            borderRadius: 44,
+            overflow: 'hidden',
+            background: '#000',
+            position: 'relative',
+            height: 384,
+            cursor: 'pointer',
+          }}
+          onClick={handleClick}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          {/* Video — full clean screen */}
           <video
+            ref={videoRef}
             src={src}
             poster={poster}
             autoPlay
@@ -58,55 +75,43 @@ function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; la
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
 
-          {/* Dynamic Island */}
+          {/* Sound toggle hint — shows on hover or when unmuted */}
           <div style={{
             position: 'absolute',
-            top: 13,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 90,
-            height: 32,
-            background: '#000',
-            borderRadius: 20,
+            bottom: 14,
+            right: 14,
             zIndex: 10,
-            boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.04)',
-          }} />
-
-          {/* Bottom label gradient */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: '40px 10px 30px',
-            background: 'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)',
-            zIndex: 5,
+            opacity: hovered || !muted ? 1 : 0,
+            transition: 'opacity 0.2s ease',
+            background: 'rgba(0,0,0,0.55)',
+            backdropFilter: 'blur(6px)',
+            borderRadius: 20,
+            padding: '5px 10px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 5,
           }}>
-            <p style={{
-              color: '#fff',
-              fontSize: 11,
-              fontWeight: 600,
-              textAlign: 'center',
-              letterSpacing: '0.07em',
-              textTransform: 'uppercase',
-              textShadow: '0 1px 4px rgba(0,0,0,0.8)',
-            }}>{label}</p>
+            {muted
+              ? <VolumeX style={{ width: 13, height: 13, color: 'rgba(255,255,255,0.8)' }} />
+              : <Volume2 style={{ width: 13, height: 13, color: '#b08d57' }} />
+            }
+            <span style={{ fontSize: 10, color: muted ? 'rgba(255,255,255,0.7)' : '#b08d57', fontWeight: 600, letterSpacing: '0.04em' }}>
+              {muted ? 'ТАП' : 'ЗВУК'}
+            </span>
           </div>
-
-          {/* Home indicator bar */}
-          <div style={{
-            position: 'absolute',
-            bottom: 10,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 96,
-            height: 5,
-            background: 'rgba(255,255,255,0.45)',
-            borderRadius: 3,
-            zIndex: 6,
-          }} />
         </div>
       </div>
+
+      {/* Label below the phone */}
+      <p style={{
+        marginTop: 12,
+        color: 'rgba(255,255,255,0.55)',
+        fontSize: 10,
+        fontWeight: 600,
+        textAlign: 'center',
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      }}>{label}</p>
     </div>
   );
 }
@@ -243,28 +248,6 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-[#111111]">
-        <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
-          <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги нашего центра</h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {navGroups.map((group) => (
-              <div key={group.label}>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-wide gold-text">{group.label}</p>
-                <ul className="space-y-2">
-                  {group.links.slice(0, 5).map((l, i) => (
-                    <li key={i}>
-                      <Link href={l.href} className="text-sm text-foreground/70 hover:text-foreground">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section-pad border-y border-border bg-[#0a0a0a]">
         <div className="mx-auto flex max-w-[1000px] flex-col items-center gap-4 px-4 text-center lg:px-8">
           <h2 className="text-2xl font-medium md:text-3xl">Остались вопросы? Закажите звонок</h2>
@@ -334,6 +317,28 @@ export function Home() {
 
         <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
           <p className="text-center text-xs text-foreground/40">Прокрутите вправо, чтобы увидеть все работы</p>
+        </div>
+      </section>
+
+      <section className="section-pad bg-[#111111]">
+        <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
+          <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги нашего центра</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {navGroups.map((group) => (
+              <div key={group.label}>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-wide gold-text">{group.label}</p>
+                <ul className="space-y-2">
+                  {group.links.slice(0, 5).map((l, i) => (
+                    <li key={i}>
+                      <Link href={l.href} className="text-sm text-foreground/70 hover:text-foreground">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
