@@ -172,7 +172,7 @@ export const footerColumns: NavGroup[] = [
 export const CONTACT = {
   phone: '+7 (958) 295-90-41',
   phoneHref: 'tel:+79582959041',
-  telegram: 'https://t.me/BT_DetailingMoscow',
-  whatsapp: 'https://wa.me/message/IQX2JDK2BEN7L1',
+  telegram: 'https://t.me/m/RUtTaeFMNGQy',
+  whatsapp: 'https://wa.me/message/3R2DQJOJ6BL3O1',
   instagram: 'https://www.instagram.com/tochkadetailinga',
 };
