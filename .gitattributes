@@ -2,3 +2,5 @@ attached_assets/лексус_1784640867584.MOV filter=lfs diff=lfs merge=lfs -te
 artifacts/detailinga/public/videos/lexus-1.mov filter=lfs diff=lfs merge=lfs -text
 artifacts/detailinga/public/videos/lexus-2.mov filter=lfs diff=lfs merge=lfs -text
 attached_assets/лексус_1784641578845.MOV filter=lfs diff=lfs merge=lfs -text
+artifacts/detailinga/public/videos/work-beha.mov filter=lfs diff=lfs merge=lfs -text
+attached_assets/беха_1784642052720.MOV filter=lfs diff=lfs merge=lfs -text
