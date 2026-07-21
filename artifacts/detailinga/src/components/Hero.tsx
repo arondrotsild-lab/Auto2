@@ -17,13 +17,14 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[700px] items-center overflow-hidden bg-[#0a0a0a] lg:min-h-[820px]">
       <video
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
+        className="absolute inset-0 h-full w-full object-cover opacity-80"
         autoPlay
         muted
         loop
         playsInline
+        poster="/images/urus-hero-poster.jpg"
       >
-        <source src="/videos/gelik-hero.mp4" type="video/mp4" />
+        <source src="/videos/urus-hero-hq.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
