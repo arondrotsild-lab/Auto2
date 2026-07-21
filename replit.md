@@ -1,46 +1,45 @@
-# Точка детейлинга
+# [Project name]
 
-A detailing business website with a React frontend and Express API backend.
+_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+
+## Run & Operate
+
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm run typecheck` — full typecheck across all packages
+- `pnpm run build` — typecheck + build all packages
+- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
+- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
+- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
-- **Frontend**: React + Vite + Tailwind CSS (`artifacts/detailinga`)
-- **Backend**: Express API server (`artifacts/api-server`)
-- **Database**: PostgreSQL via Drizzle ORM (`lib/db`)
-- **Package manager**: pnpm monorepo
+- pnpm workspaces, Node.js 24, TypeScript 5.9
+- API: Express 5
+- DB: PostgreSQL + Drizzle ORM
+- Validation: Zod (`zod/v4`), `drizzle-zod`
+- API codegen: Orval (from OpenAPI spec)
+- Build: esbuild (CJS bundle)
 
-## Running the project
+## Where things live
 
-Two workflows must be running:
+_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
 
-| Workflow | Command | Port |
-|---|---|---|
-| Frontend | `PORT=5173 BASE_PATH=/ pnpm --filter @workspace/detailinga run dev` | 5173 |
-| API Server | `PORT=8080 pnpm --filter @workspace/api-server run dev` | 8080 |
+## Architecture decisions
 
-The frontend is the primary preview. The API is reachable at `/api`.
+_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
 
-## Database
+## Product
 
-Replit's built-in PostgreSQL is used. `DATABASE_URL` is injected automatically — no manual secret needed. To push schema changes:
-
-```bash
-pnpm --filter @workspace/db run push
-```
-
-## Project structure
-
-```
-artifacts/
-  detailinga/       # React + Vite frontend
-  api-server/       # Express API backend
-lib/
-  db/               # Drizzle ORM schema + client
-  api-spec/         # OpenAPI spec
-  api-zod/          # Zod schemas (generated)
-  api-client-react/ # React Query hooks (generated)
-```
+_Describe the high-level user-facing capabilities of this app once they exist._
 
 ## User preferences
 
-- Keep the existing monorepo structure and stack.
+_Populate as you build — explicit user instructions worth remembering across sessions._
+
+## Gotchas
+
+_Populate as you build — sharp edges, "always run X before Y" rules._
+
+## Pointers
+
+- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
