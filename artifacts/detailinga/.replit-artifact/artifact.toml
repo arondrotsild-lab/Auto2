@@ -1,28 +1,27 @@
 kind = "web"
-    previewPath = "/"
-    title = "Точка детейлинга"
-    version = "1.0.0"
-    id = "artifacts/detailinga"
-    router = "path"
+previewPath = "/"
+title = "Точка детейлинга"
+version = "1.0.0"
+id = "artifacts/detailinga"
+router = "path"
 
-    [[services]]
-    name = "web"
-    paths = [ "/" ]
-    localPort = 23155
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23155
 
-    [services.development]
-    run = "pnpm --filter @workspace/detailinga run dev"
+[services.development]
+run = "pnpm --filter @workspace/detailinga run dev"
 
-    [services.production]
-    build = [ "pnpm", "--filter", "@workspace/detailinga", "run", "build" ]
-    serve = "static"
-    publicDir = "artifacts/detailinga/dist/public"
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/detailinga", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/detailinga/dist/public"
 
-    [[services.production.rewrites]]
-    from = "/*"
-    to = "/index.html"
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
 
-    [services.env]
-    PORT = "23155"
-    BASE_PATH = "/"
-    
+[services.env]
+PORT = "23155"
+BASE_PATH = "/"
