@@ -5,7 +5,20 @@ import { Hero } from '@/components/Hero';
 import { TelegramBanner } from '@/components/TelegramBanner';
 import { ContactForm } from '@/components/ContactForm';
 import { CONTACT, navGroups } from '@/data/nav';
-import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, X } from 'lucide-react';
+import {
+  ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, X,
+  Car, Armchair, Wrench, Layers, Hammer, RotateCcw, Droplets, ChevronRight,
+} from 'lucide-react';
+
+const categoryIcons: Record<string, React.ElementType> = {
+  'Кузов': Car,
+  'Интерьер': Armchair,
+  'Дооснащение': Wrench,
+  'Стекла': Layers,
+  'Кузовной ремонт': Hammer,
+  'Шиномонтаж/диски': RotateCcw,
+  'Детейлинг/мойка': Droplets,
+};
 
 /* ── Fullscreen video modal ───────────────────────────────────────────── */
 function VideoModal({ src, poster, onClose }: { src: string; poster?: string; onClose: () => void }) {
@@ -341,24 +354,69 @@ export function Home() {
         </div>
       </section>
 
-      <section className="section-pad bg-[#111111]">
-        <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
-          <h2 className="mb-8 text-center text-2xl font-medium md:text-3xl">Дополнительные услуги нашего центра</h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {navGroups.map((group) => (
-              <div key={group.label}>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-wide gold-text">{group.label}</p>
-                <ul className="space-y-2">
-                  {group.links.slice(0, 5).map((l, i) => (
-                    <li key={i}>
-                      <Link href={l.href} className="text-sm text-foreground/70 hover:text-foreground">
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+      <section className="section-pad bg-[#0d0d0d] relative overflow-hidden">
+        {/* Background glow */}
+        <div className="pointer-events-none absolute inset-0">
+          <div style={{
+            position: 'absolute', top: '30%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: '60%', height: 400,
+            background: 'radial-gradient(ellipse, rgba(176,141,87,0.07) 0%, transparent 70%)',
+          }} />
+        </div>
+
+        <div className="relative mx-auto max-w-[1320px] px-4 lg:px-8">
+          {/* Header */}
+          <div className="mb-12 text-center">
+            <p className="mb-2 text-xs uppercase tracking-widest text-primary/70">Всё для вашего автомобиля</p>
+            <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">Дополнительные услуги нашего центра</h2>
+            <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-primary to-transparent" />
+          </div>
+
+          {/* Cards grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {navGroups.map((group) => {
+              const Icon = categoryIcons[group.label] ?? Wrench;
+              return (
+                <div
+                  key={group.label}
+                  className="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.03] p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-primary/5"
+                >
+                  {/* Gold top accent line */}
+                  <div className="absolute inset-x-0 top-0 h-px rounded-t-xl bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* Icon + label */}
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors duration-300 group-hover:bg-primary/20">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </div>
+                    <p className="text-sm font-semibold uppercase tracking-wider text-foreground/90">{group.label}</p>
+                  </div>
+
+                  <div className="mb-4 h-px bg-white/[0.06]" />
+
+                  {/* Links */}
+                  <ul className="flex flex-col gap-2">
+                    {group.links.slice(0, 6).map((l, i) => (
+                      <li key={i}>
+                        <Link
+                          href={l.href}
+                          className="group/link flex items-start gap-1.5 text-sm leading-snug text-foreground/55 transition-colors duration-150 hover:text-primary"
+                        >
+                          <ChevronRight className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 opacity-0 transition-all duration-150 group-hover/link:opacity-100" />
+                          <span>{l.label}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Count badge if more items */}
+                  {group.links.length > 6 && (
+                    <p className="mt-3 text-xs text-foreground/30">+{group.links.length - 6} услуги</p>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
