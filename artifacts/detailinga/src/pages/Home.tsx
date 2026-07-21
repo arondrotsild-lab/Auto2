@@ -140,6 +140,7 @@ function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
 const workVideos = [
   { src: '/videos/lexus-1.mov' },
   { src: '/videos/gelik-hero.mp4' },
+  { src: '/videos/work-ryzhik.mp4' },
   { src: '/videos/work-223.mov' },
   { src: '/videos/work-finik.mov' },
   { src: '/videos/work-beha.mov' },

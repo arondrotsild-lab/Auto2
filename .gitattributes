@@ -6,3 +6,4 @@ artifacts/detailinga/public/videos/work-beha.mov filter=lfs diff=lfs merge=lfs -
 attached_assets/беха_1784642052720.MOV filter=lfs diff=lfs merge=lfs -text
 artifacts/detailinga/public/videos/work-mers-ml.mov filter=lfs diff=lfs merge=lfs -text
 attached_assets/мерс_мл_1784642193261.MOV filter=lfs diff=lfs merge=lfs -text
+attached_assets/рыжик_1784643791635.MOV filter=lfs diff=lfs merge=lfs -text
