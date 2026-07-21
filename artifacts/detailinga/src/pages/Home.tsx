@@ -147,16 +147,6 @@ const workVideos = [
   { src: '/videos/work-white-chinese.mov' },
   { src: '/videos/work-jeep.mov' },
   { src: '/videos/work-peugeot.mov' },
-  { src: '/videos/work-1.mp4',  poster: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp',  label: 'Защита кузова' },
-  { src: '/videos/work-2.mp4',  poster: '/images/b6db6ea8e808-6809e220-a19e-41cd-a.webp',  label: 'Химчистка' },
-  { src: '/videos/work-3.mp4',  poster: '/images/7bbb8dce0e49-b1b91051-11e1-40aa-8.webp',  label: 'Диски литые' },
-  { src: '/videos/work-4.mp4',  poster: '/images/c7fcf95ff88b-1417f69a-3bd8-41f3-9.webp',  label: 'Комплексная мойка' },
-  { src: '/videos/work-5.mp4',  poster: '/images/c63c21a12d01-cf359342-d008-400c-a.webp',  label: 'Защита стекла' },
-  { src: '/videos/work-6.mp4',  poster: '/images/0a3db5fc2f81-to4ka_detailinga-202.webp',  label: 'Керамика' },
-  { src: '/videos/work-7.mp4',  poster: '/images/0a48af105aa9-DSCF9532.webp',              label: 'Полировка' },
-  { src: '/videos/work-8.mp4',  poster: '/images/0a325f1becba-P1100745.webp',              label: 'Детейлинг' },
-  { src: '/videos/work-9.mp4',  poster: '/images/12930cbfddd0-DSCF4668.webp',              label: 'Антигравий' },
-  { src: '/videos/work-10.mp4', poster: '/images/079cc3685ee6-XXXL1.webp',                 label: 'Тонировка' },
 ];
 
 const guarantees = [
