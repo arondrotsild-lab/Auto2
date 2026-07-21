@@ -25,11 +25,11 @@ router.post("/lead", async (req, res) => {
   const photo = files.photo?.[0];
 
   const text = [
-    "🚗 *Новая заявка с сайта*",
+    "🚗 Новая заявка с сайта",
     "",
-    `👤 *Имя:* ${name}`,
-    `📱 *Telegram:* ${telegram ? "@" + telegram.replace(/^@/, "") : "не указан"}`,
-    `💬 *Запрос:*\n${message}`,
+    `👤 Имя: ${name}`,
+    `📱 Telegram: ${telegram ? "@" + telegram.replace(/^@/, "") : "не указан"}`,
+    `💬 Запрос:\n${message}`,
   ].join("\n");
 
   try {
@@ -38,7 +38,6 @@ router.post("/lead", async (req, res) => {
       const fd = new FormData();
       fd.append("chat_id", CHAT_ID);
       fd.append("caption", text);
-      fd.append("parse_mode", "Markdown");
       fd.append(
         "photo",
         new Blob([buf], { type: photo.mimetype ?? "image/jpeg" }),
@@ -58,7 +57,6 @@ router.post("/lead", async (req, res) => {
           body: JSON.stringify({
             chat_id: CHAT_ID,
             text,
-            parse_mode: "Markdown",
           }),
         },
       );
