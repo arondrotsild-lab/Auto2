@@ -7,7 +7,7 @@ import { CONTACT, navGroups } from '@/data/nav';
 import { ShieldCheck, Sparkles, MessageCircleHeart, Award, Star, Users, Volume2, VolumeX } from 'lucide-react';
 
 /* ── iPhone 17 Pro Max mockup ─────────────────────────────────────────── */
-function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; label: string }) {
+function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [hovered, setHovered] = useState(false);
@@ -102,16 +102,6 @@ function IPhoneMockup({ src, poster, label }: { src: string; poster?: string; la
         </div>
       </div>
 
-      {/* Label below the phone */}
-      <p style={{
-        marginTop: 12,
-        color: 'rgba(255,255,255,0.55)',
-        fontSize: 10,
-        fontWeight: 600,
-        textAlign: 'center',
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-      }}>{label}</p>
     </div>
   );
 }
@@ -309,8 +299,8 @@ export function Home() {
             }}
             className="[&::-webkit-scrollbar]:hidden"
           >
-            {workVideos.map((v) => (
-              <IPhoneMockup key={v.label} src={v.src} poster={v.poster} label={v.label} />
+            {workVideos.map((v, i) => (
+              <IPhoneMockup key={i} src={v.src} poster={v.poster} />
             ))}
           </div>
         </div>
