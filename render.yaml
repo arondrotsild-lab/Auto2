@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: btdetailing
+    name: btdetailing-web
     runtime: node
     buildCommand: pnpm install && pnpm --filter @workspace/detailinga run build && pnpm --filter @workspace/api-server run build
     startCommand: node --enable-source-maps artifacts/api-server/dist/index.mjs
