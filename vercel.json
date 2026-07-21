@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "pnpm --filter @workspace/detailinga run build",
+  "buildCommand": "pnpm run typecheck:libs && pnpm --filter @workspace/detailinga run build",
   "outputDirectory": "artifacts/detailinga/dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,
