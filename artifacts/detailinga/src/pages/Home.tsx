@@ -84,7 +84,6 @@ function VideoModal({ src, poster, onClose }: { src: string; poster?: string; on
 /* ── iPhone 17 Pro Max mockup ─────────────────────────────────────────── */
 function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
   const [open, setOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
   return (
     <>
@@ -92,8 +91,6 @@ function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
         className="relative flex-shrink-0 select-none"
         style={{ width: 178, cursor: 'pointer' }}
         onClick={() => setOpen(true)}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
       >
         {/* Left buttons */}
         <div style={{ position: 'absolute', left: -4, top: 86, zIndex: 2, display: 'flex', flexDirection: 'column', gap: 0 }}>
@@ -118,10 +115,8 @@ function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
             '0 0 0 0.5px rgba(0,0,0,0.4)',
           ].join(', '),
           position: 'relative',
-          transition: 'transform 0.18s ease, box-shadow 0.18s ease',
-          transform: hovered ? 'scale(1.03)' : 'scale(1)',
         }}>
-          {/* Screen */}
+          {/* Screen — pure video, no overlays */}
           <div style={{ borderRadius: 44, overflow: 'hidden', background: '#000', position: 'relative', height: 384 }}>
             <video
               src={src}
@@ -132,31 +127,6 @@ function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
               playsInline
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
-
-            {/* Play hint overlay on hover */}
-            <div style={{
-              position: 'absolute', inset: 0, zIndex: 5,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: hovered ? 'rgba(0,0,0,0.35)' : 'rgba(0,0,0,0)',
-              transition: 'background 0.18s ease',
-            }}>
-              <div style={{
-                width: 52, height: 52,
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(6px)',
-                border: '1.5px solid rgba(255,255,255,0.4)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                opacity: hovered ? 1 : 0,
-                transform: hovered ? 'scale(1)' : 'scale(0.7)',
-                transition: 'opacity 0.18s ease, transform 0.18s ease',
-              }}>
-                {/* Play triangle */}
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M5 3.5L14.5 9L5 14.5V3.5Z" fill="white" />
-                </svg>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -168,6 +138,8 @@ function IPhoneMockup({ src, poster }: { src: string; poster?: string }) {
 
 /* ── Works videos ─────────────────────────────────────────────────────── */
 const workVideos = [
+  { src: '/videos/lexus-1.mov' },
+  { src: '/videos/lexus-2.mov' },
   { src: '/videos/work-1.mp4',  poster: '/images/6bfa0a6dac0d-96d6d93f-c97e-4546-9.webp',  label: 'Защита кузова' },
   { src: '/videos/work-2.mp4',  poster: '/images/b6db6ea8e808-6809e220-a19e-41cd-a.webp',  label: 'Химчистка' },
   { src: '/videos/work-3.mp4',  poster: '/images/7bbb8dce0e49-b1b91051-11e1-40aa-8.webp',  label: 'Диски литые' },
