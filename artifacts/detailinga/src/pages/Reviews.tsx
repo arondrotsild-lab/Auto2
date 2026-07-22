@@ -1,4 +1,5 @@
 import { Star, MessageCircle } from 'lucide-react';
+import { ReviewForm } from '@/components/ReviewForm';
 
 /* ── Яндекс-отзывы (из скринов) ── */
 const yandexReviews = [
@@ -138,6 +139,7 @@ function ChatBubble({ msg, platform }: { msg: { from: string; text: string }; pl
 
 export function Reviews() {
   return (
+    <>
     <div className="min-h-screen bg-background pt-36 pb-24">
       <div className="mx-auto max-w-[1320px] px-4 lg:px-8">
 
@@ -256,5 +258,8 @@ export function Reviews() {
 
       </div>
     </div>
+
+    <ReviewForm />
+  </>
   );
 }
