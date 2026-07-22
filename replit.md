@@ -1,36 +1,47 @@
-# [Project name]
+# BT Detailing — Точка Детейлинга
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Car detailing center website (btdetailing.ru) — a Russian-language marketing site for BT Detailing with service pages, gallery, reviews, and a Telegram-connected lead form.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/detailinga run dev` — run the frontend (Vite, port from env)
+- `pnpm --filter @workspace/api-server run dev` — run the API server (port 8080)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspaces, Node.js, TypeScript 5.9
+- Frontend: React + Vite + Tailwind CSS (artifact: `artifacts/detailinga`)
+- API: Express 5 (artifact: `artifacts/api-server`)
+- Routing: wouter
+- UI: shadcn/ui + Radix UI
+- Animations: Framer Motion
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/detailinga/src/pages/` — page components (Home, ServicePage, Personal, Reviews)
+- `artifacts/detailinga/src/components/` — shared components including ReviewForm
+- `artifacts/detailinga/public/images/` — all site images (webp)
+- `artifacts/api-server/src/routes/lead.ts` — POST /api/lead — Telegram lead submission (formidable, file upload)
+- `artifacts/api-server/src/routes/review.ts` — POST /api/review — Telegram review submission
+- `.migration-backup/` — original Vercel project snapshot (do not modify)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Converted from Vercel (serverless) to Replit pnpm workspace: Express API server + Vite frontend as separate artifacts.
+- Telegram integration: lead forms and reviews post to a Telegram bot via `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` secrets.
+- Images are served as static assets from `artifacts/detailinga/public/images/` — hundreds of webp files.
+- Review route uses `formidable` (temp file approach); lead route uses `multer` (in-memory buffer) — both support optional photo uploads.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Russian-language marketing site for a Moscow car detailing center
+- Service catalog (body wrap, interior, upgrades, glass, body repair, tire/wheels, detailing/wash)
+- Photo gallery per service
+- Customer reviews section with star ratings
+- Lead capture form → Telegram bot notification
+- Review submission form → Telegram bot notification
 
 ## User preferences
 
@@ -38,7 +49,10 @@ _Populate as you build — explicit user instructions worth remembering across s
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- **Telegram secrets required**: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` must be set as Replit secrets for lead and review forms to work.
+- Images are large (hundreds of webp files in `public/images/`) — do not move or rename them, components reference them by path.
+- `.migration-backup/` workflows are registered but not needed — only `artifacts/detailinga: web` and `artifacts/api-server: API Server` matter.
+- Do not run `pnpm dev` at workspace root — use workflow names with `WorkflowsRestart`.
 
 ## Pointers
 
