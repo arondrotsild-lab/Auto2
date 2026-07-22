@@ -1,4 +1,4 @@
-# BT Detailing — Точка Детейлинга
+# BT Detailing — Детейлинг
 
 Car detailing center website (btdetailing.ru) — a Russian-language marketing site for BT Detailing with service pages, gallery, reviews, and a Telegram-connected lead form.
 

@@ -1,6 +1,6 @@
 kind = "web"
 previewPath = "/"
-title = "Точка детейлинга"
+title = "Детейлинг"
 version = "1.0.0"
 id = "artifacts/detailinga"
 router = "path"
