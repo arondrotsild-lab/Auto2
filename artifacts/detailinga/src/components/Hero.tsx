@@ -29,19 +29,19 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
 
-      <div className="relative z-10 mx-auto w-full max-w-[1320px] px-4 pt-44 pb-24 lg:px-8 lg:pt-52">
-        <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-[1320px] px-4 pt-28 pb-8 lg:px-8 lg:pt-52 lg:pb-24">
+        <h1 className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl lg:text-6xl">
           <span className="gold-gradient-text">Доступный премиальный детейлинг</span> любого класса
         </h1>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/75">
+        <p className="mt-3 max-w-xl text-sm leading-relaxed text-foreground/75 lg:mt-5 lg:text-base">
           Защищаем, преображаем и дооснащаем автомобили премиум и эконом-класса. Работаем быстро, с гарантией — чтобы ваш автомобиль выглядел лучше, чем с завода.
         </p>
 
-        <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
+        <div className="mt-4 grid grid-cols-3 gap-3 lg:mt-10 lg:flex lg:flex-wrap lg:gap-12">
           {stats.map((s) => (
-            <div key={s.label} className="max-w-[220px]">
-              <p className="text-3xl font-semibold gold-gradient-text md:text-4xl">{s.value}</p>
-              <p className="mt-1 text-xs leading-snug text-foreground/70">{s.label}</p>
+            <div key={s.label}>
+              <p className="text-xl font-semibold gold-gradient-text md:text-3xl lg:text-4xl">{s.value}</p>
+              <p className="mt-0.5 text-[10px] leading-snug text-foreground/70 lg:mt-1 lg:text-xs lg:max-w-[220px]">{s.label}</p>
             </div>
           ))}
         </div>
@@ -50,7 +50,7 @@ export function Hero() {
           href={CONTACT.telegram}
           target="_blank"
           rel="noreferrer"
-          className="mt-10 inline-block rounded-sm bg-primary px-9 py-4 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition hover:opacity-90"
+          className="mt-5 inline-block rounded-sm bg-primary px-9 py-3 text-sm font-semibold uppercase tracking-wide text-primary-foreground transition hover:opacity-90 lg:mt-10 lg:py-4"
         >
           Связаться с нами
         </a>
