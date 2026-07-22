@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <Logo className="h-32 w-auto" />
             <div>
-              <p className="text-lg font-semibold tracking-wide">Brutaliti Detailing</p>
+              <p className="text-lg font-semibold tracking-wide">BT Детейлинг</p>
               <p className="text-sm text-muted-foreground">Доступный премиальный детейлинг автомобилей любого класса</p>
             </div>
           </div>
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
 
         <div className="mt-0 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Brutaliti Detailing. Все права защищены.</p>
+          <p>© {new Date().getFullYear()} BT Детейлинг. Все права защищены.</p>
           <Link href="/personal" className="hover:text-foreground">
             Политика конфиденциальности и обработки персональных данных
           </Link>
