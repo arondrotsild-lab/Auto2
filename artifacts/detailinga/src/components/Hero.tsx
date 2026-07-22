@@ -31,7 +31,7 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-4 pt-44 pb-24 lg:px-8 lg:pt-52">
         <h1 className="max-w-2xl text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-          Лучшее качество и премиум материалы <span className="gold-gradient-text">доступны для каждого сегмента авто</span>
+          <span className="gold-gradient-text">Доступный премиальный детейлинг</span> любого класса
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-foreground/75">
           Защищаем, преображаем и дооснащаем автомобили премиум и эконом-класса. Работаем быстро, с гарантией — чтобы ваш автомобиль выглядел лучше, чем с завода.
