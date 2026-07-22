@@ -4,6 +4,10 @@
   "outputDirectory": "artifacts/detailinga/dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,
+  "functions": {
+    "api/lead.ts": { "memory": 256, "maxDuration": 10 },
+    "api/review.ts": { "memory": 256, "maxDuration": 10 }
+  },
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
